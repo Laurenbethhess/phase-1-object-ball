@@ -118,21 +118,19 @@ function gameObject(){
    
 console.log(gameObject())
 
-function numPointsScored(name) {
-    let game = gameObject();
-    for (let gameKey in game) {
-  
-        let teamObj = game[gameKey];
-        console.log(teamObj)
-        for (let teamKey in teamObj) {
-       
-            let data = teamKey.player;
-            console.log(data)
-            for (let key in data) {
-                if(name===key)
-                return data[key].points
+function numPointsScored(theName) {
+    const theGame = gameObject()
+    for (const team in theGame){
+        const player = theGame[team].player
+
+        for (const thePlayer in player) {
+            if (thePlayer === theName) {
+                return player[thePlayer].points
             }
+
         }
-    } 
+
+    }
 }
-console.log(numPointsScored('Brendan Haywood'))
+
+numPointsScored('Brendan Haywood')
